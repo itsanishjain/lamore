@@ -21,7 +21,7 @@ export const metadata = {
 
 export default async function HomePage() {
   return (
-    <>
+    <div>
       {/* @ts-expect-error Server Component */}
       <ThreeItemGrid />
       <Suspense>
@@ -32,6 +32,6 @@ export default async function HomePage() {
           <Footer />
         </Suspense>
       </Suspense>
-    </>
+    </div>
   );
 }
