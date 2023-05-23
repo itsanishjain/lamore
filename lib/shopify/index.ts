@@ -275,16 +275,12 @@ export async function getCollectionProducts({
     }
   });
 
-  console.log(`No collection found for \`${res}\``);
+  if (!res.body.data.collection) {
+    console.log(`No collection found for \`${collection}\``);
+    return [];
+  }
 
-  return [];
-
-  // if (!res.body.data.collection) {
-  //   // console.log(`No collection found for \`${collection}\``);
-  //   return [];
-  // }
-
-  // return reshapeProducts(removeEdgesAndNodes(res.body.data.collection.products));
+  return reshapeProducts(removeEdgesAndNodes(res.body.data.collection.products));
 }
 
 export async function getCollections(): Promise<Collection[]> {
