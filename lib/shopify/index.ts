@@ -75,7 +75,7 @@ export async function shopifyFetch<T>({
         ...(variables && { variables })
       }),
       cache,
-      next: { revalidate: 900 } // 15 minutes
+      next: { revalidate: 60 } // 15 minutes
     });
 
     const body = await result.json();
