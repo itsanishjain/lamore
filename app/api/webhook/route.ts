@@ -1,12 +1,10 @@
+import { revalidatePath } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
-
-import { endpoint } from 'lib/shopify';
-export async function GET(req: NextRequest): Promise<Response> {
-  console.log(req);
-  return NextResponse.json({ status: 500, message: endpoint });
-}
 
 export async function POST(req: NextRequest): Promise<Response> {
   console.log(req);
-  return NextResponse.json({ status: 500, message: endpoint });
+  console.log(req.nextUrl.searchParams.get('path'));
+  const path = req.nextUrl.searchParams.get('path') || '/';
+  revalidatePath(path);
+  return NextResponse.json({ revalidated: true, now: Date.now() });
 }
