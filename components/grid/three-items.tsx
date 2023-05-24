@@ -48,6 +48,7 @@ export async function ThreeItemGrid() {
   return (
     <>
       <p>TOTal items: homepageItems : {homepageItems.length}</p>
+      <p>This is for test of Shopify redirect routes</p>
       <section className="lg:grid lg:grid-cols-6 lg:grid-rows-2" data-testid="homepage-products">
         <ThreeItemGridItem size="full" item={firstProduct} background="purple" />
         <ThreeItemGridItem size="half" item={secondProduct} background="black" />
